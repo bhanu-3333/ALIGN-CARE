@@ -6,31 +6,31 @@ const roles = [
   {
     id: 'admin',
     name: 'Admin',
-    description: 'Manage Users & Operations',
+    description: 'Manage Zone & Operations',
     image: require('@/assets/images/admin.png'),
   },
   {
     id: 'clinic',
     name: 'Clinic',
-    description: 'Schedule appointments & track orders',
+    description: 'Schedule waste pickups & track status',
     image: require('@/assets/images/clinic.png'),
   },
   {
     id: 'aligner',
     name: 'Aligner Company',
-    description: 'Manage inventory and orders in system',
+    description: 'Monitor compliance and generate reports',
     image: require('@/assets/images/aligner-company.png'),
   },
   {
     id: 'delivery',
-    name: 'Delivery Partner',
-    description: 'Collect and transport used Orthodontics',
+    name: 'Delivery',
+    description: 'Collect and transport waste efficiently',
     image: require('@/assets/images/delivery.png'),
   },
   {
     id: 'recycling',
-    name: 'Recycler Company',
-    description: 'Process and recycle to our refinery plant',
+    name: 'Recycling',
+    description: 'Process waste and issue certifications',
     image: require('@/assets/images/recycling.png'),
   },
 ];
@@ -58,50 +58,205 @@ export default function SelectRoleScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.logoContainer}>
-          <Image
-            source={require('@/assets/images/logo.png')}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-        </View>
-
         <View style={styles.header}>
           <Text style={styles.title}>Select Your Role</Text>
-          <Text style={styles.subtitle}>Choose how you want to continue</Text>
+          <Text style={styles.subtitle}>Choose how you'll contribute to sustainability today</Text>
         </View>
 
-        <View style={styles.grid}>
-          {roles.map((role, index) => (
-            <TouchableOpacity
-              key={role.id}
-              style={[
-                styles.card,
-                selectedRole === role.id && styles.cardSelected,
-                index === 2 && styles.cardLarge,
-              ]}
-              onPress={() => handleRoleSelect(role.id)}
-              activeOpacity={0.7}
-            >
+        <View style={styles.cardsContainer}>
+          {/* Admin - Full Width */}
+          <TouchableOpacity
+            style={[
+              styles.card,
+              styles.cardFull,
+              selectedRole === roles[0].id && styles.cardSelected,
+            ]}
+            onPress={() => handleRoleSelect(roles[0].id)}
+            activeOpacity={0.8}
+          >
+            <View style={[
+              styles.iconCircle,
+              selectedRole === roles[0].id && styles.iconCircleSelected,
+            ]}>
               <Image
-                source={role.image}
+                source={roles[0].image}
                 style={styles.roleIcon}
                 resizeMode="contain"
               />
+            </View>
+            <View style={styles.cardContent}>
               <Text style={[
                 styles.roleName,
-                selectedRole === role.id && styles.roleNameSelected,
+                selectedRole === roles[0].id && styles.roleNameSelected,
               ]}>
-                {role.name}
+                {roles[0].name}
               </Text>
               <Text style={[
                 styles.roleDescription,
-                selectedRole === role.id && styles.roleDescriptionSelected,
+                selectedRole === roles[0].id && styles.roleDescriptionSelected,
               ]}>
-                {role.description}
+                {roles[0].description}
               </Text>
+            </View>
+            <Text style={[
+              styles.arrow,
+              selectedRole === roles[0].id && styles.arrowSelected,
+            ]}>›</Text>
+          </TouchableOpacity>
+
+          {/* Row 1: Clinic and Aligner Company */}
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={[
+                styles.card,
+                styles.cardHalf,
+                selectedRole === roles[1].id && styles.cardSelected,
+              ]}
+              onPress={() => handleRoleSelect(roles[1].id)}
+              activeOpacity={0.8}
+            >
+              <View style={[
+                styles.iconCircle,
+                selectedRole === roles[1].id && styles.iconCircleSelected,
+              ]}>
+                <Image
+                  source={roles[1].image}
+                  style={styles.roleIcon}
+                  resizeMode="contain"
+                />
+              </View>
+              <Text style={[
+                styles.roleName,
+                selectedRole === roles[1].id && styles.roleNameSelected,
+              ]}>
+                {roles[1].name}
+              </Text>
+              <Text style={[
+                styles.roleDescription,
+                selectedRole === roles[1].id && styles.roleDescriptionSelected,
+              ]}>
+                {roles[1].description}
+              </Text>
+              <Text style={[
+                styles.arrow,
+                selectedRole === roles[1].id && styles.arrowSelected,
+              ]}>›</Text>
             </TouchableOpacity>
-          ))}
+
+            <TouchableOpacity
+              style={[
+                styles.card,
+                styles.cardHalf,
+                selectedRole === roles[2].id && styles.cardSelected,
+              ]}
+              onPress={() => handleRoleSelect(roles[2].id)}
+              activeOpacity={0.8}
+            >
+              <View style={[
+                styles.iconCircle,
+                selectedRole === roles[2].id && styles.iconCircleSelected,
+              ]}>
+                <Image
+                  source={roles[2].image}
+                  style={styles.roleIcon}
+                  resizeMode="contain"
+                />
+              </View>
+              <Text style={[
+                styles.roleName,
+                selectedRole === roles[2].id && styles.roleNameSelected,
+              ]}>
+                {roles[2].name}
+              </Text>
+              <Text style={[
+                styles.roleDescription,
+                selectedRole === roles[2].id && styles.roleDescriptionSelected,
+              ]}>
+                {roles[2].description}
+              </Text>
+              <Text style={[
+                styles.arrow,
+                selectedRole === roles[2].id && styles.arrowSelected,
+              ]}>›</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Row 2: Delivery and Recycling */}
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={[
+                styles.card,
+                styles.cardHalf,
+                selectedRole === roles[3].id && styles.cardSelected,
+              ]}
+              onPress={() => handleRoleSelect(roles[3].id)}
+              activeOpacity={0.8}
+            >
+              <View style={[
+                styles.iconCircle,
+                selectedRole === roles[3].id && styles.iconCircleSelected,
+              ]}>
+                <Image
+                  source={roles[3].image}
+                  style={styles.roleIcon}
+                  resizeMode="contain"
+                />
+              </View>
+              <Text style={[
+                styles.roleName,
+                selectedRole === roles[3].id && styles.roleNameSelected,
+              ]}>
+                {roles[3].name}
+              </Text>
+              <Text style={[
+                styles.roleDescription,
+                selectedRole === roles[3].id && styles.roleDescriptionSelected,
+              ]}>
+                {roles[3].description}
+              </Text>
+              <Text style={[
+                styles.arrow,
+                selectedRole === roles[3].id && styles.arrowSelected,
+              ]}>›</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[
+                styles.card,
+                styles.cardHalf,
+                selectedRole === roles[4].id && styles.cardSelected,
+              ]}
+              onPress={() => handleRoleSelect(roles[4].id)}
+              activeOpacity={0.8}
+            >
+              <View style={[
+                styles.iconCircle,
+                selectedRole === roles[4].id && styles.iconCircleSelected,
+              ]}>
+                <Image
+                  source={roles[4].image}
+                  style={styles.roleIcon}
+                  resizeMode="contain"
+                />
+              </View>
+              <Text style={[
+                styles.roleName,
+                selectedRole === roles[4].id && styles.roleNameSelected,
+              ]}>
+                {roles[4].name}
+              </Text>
+              <Text style={[
+                styles.roleDescription,
+                selectedRole === roles[4].id && styles.roleDescriptionSelected,
+              ]}>
+                {roles[4].description}
+              </Text>
+              <Text style={[
+                styles.arrow,
+                selectedRole === roles[4].id && styles.arrowSelected,
+              ]}>›</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -114,87 +269,119 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   scrollContent: {
-    paddingHorizontal: 20,
+    flexGrow: 1,
+    paddingHorizontal: 24,
     paddingTop: 50,
-    paddingBottom: 40,
-  },
-  logoContainer: {
-    alignItems: 'center',
-    marginBottom: 30,
-  },
-  logo: {
-    width: 120,
-    height: 60,
+    paddingBottom: 30,
   },
   header: {
     alignItems: 'center',
-    marginBottom: 35,
+    marginBottom: 32,
   },
   title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: '#2E7D6B',
-    marginBottom: 8,
+    fontSize: 32,
+    fontWeight: '700',
+    color: '#1F2937',
+    marginBottom: 10,
+    fontFamily: 'Lato',
   },
   subtitle: {
-    fontSize: 14,
-    color: '#666',
+    fontSize: 15,
+    color: '#6B7280',
+    textAlign: 'center',
+    fontFamily: 'Lato',
   },
-  grid: {
+  cardsContainer: {
+    flex: 1,
+    gap: 18,
+    justifyContent: 'center',
+  },
+  row: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-between',
-    gap: 15,
+    gap: 18,
   },
   card: {
-    width: '47%',
     backgroundColor: '#fff',
-    borderRadius: 18,
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 160,
+    borderRadius: 20,
+    padding: 24,
     borderWidth: 1,
-    borderColor: '#E5E5E5',
+    borderColor: '#E5E7EB',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 4,
     },
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
-    elevation: 4,
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 5,
+    position: 'relative',
+    minHeight: 140,
   },
-  cardLarge: {
+  cardFull: {
     width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 20,
+    minHeight: 120,
+  },
+  cardHalf: {
+    flex: 1,
+    alignItems: 'flex-start',
+    minHeight: 180,
   },
   cardSelected: {
-    backgroundColor: '#2E7D6B',
-    borderColor: '#2E7D6B',
-    transform: [{ scale: 0.98 }],
+    backgroundColor: '#0D9488',
+    borderColor: '#0D9488',
+  },
+  cardContent: {
+    flex: 1,
+  },
+  iconCircle: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: '#0D9488',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  iconCircleSelected: {
+    backgroundColor: '#0F766E',
   },
   roleIcon: {
-    width: 60,
-    height: 60,
-    marginBottom: 12,
+    width: 32,
+    height: 32,
+    tintColor: '#fff',
   },
   roleName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 6,
-    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#1F2937',
+    marginBottom: 8,
+    fontFamily: 'Lato',
   },
   roleNameSelected: {
     color: '#fff',
   },
   roleDescription: {
-    fontSize: 11,
-    color: '#666',
-    textAlign: 'center',
-    lineHeight: 16,
+    fontSize: 13,
+    color: '#6B7280',
+    lineHeight: 18,
+    fontFamily: 'Lato',
   },
   roleDescriptionSelected: {
-    color: '#E8F5F3',
+    color: '#E0F2F1',
+  },
+  arrow: {
+    position: 'absolute',
+    right: 20,
+    top: '50%',
+    fontSize: 28,
+    color: '#D1D5DB',
+    marginTop: -14,
+  },
+  arrowSelected: {
+    color: '#fff',
   },
 });
