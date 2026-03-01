@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    paddingTop: 40,
+    paddingTop: 45,
   },
   backgroundImage: {
     position: 'absolute',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     maxWidth: 600,
     zIndex: 10,
     marginTop: 20,
-    marginBottom: -80,
+    marginBottom: -70,
   },
   bottomSection: {
     flex: 1,
