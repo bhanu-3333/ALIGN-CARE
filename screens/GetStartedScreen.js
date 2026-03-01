@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 24,
     marginBottom: 40,
-    fontFamily: 'Lato',
+    fontWeight: '400',
   },
   button: {
     backgroundColor: '#0D9488',
@@ -128,6 +128,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: '600',
-    fontFamily: 'Lato',
   },
 });
