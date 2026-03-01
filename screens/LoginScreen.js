@@ -23,17 +23,19 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: '#2E7D6B',
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 18,
+    fontWeight: '400',
     color: '#666',
     marginBottom: 20,
   },
   info: {
     fontSize: 14,
+    fontWeight: '400',
     color: '#999',
   },
 });
