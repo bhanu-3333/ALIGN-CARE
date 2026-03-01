@@ -283,13 +283,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#1F2937',
     marginBottom: 10,
-    fontFamily: 'Lato',
   },
   subtitle: {
     fontSize: 15,
+    fontWeight: '400',
     color: '#6B7280',
     textAlign: 'center',
-    fontFamily: 'Lato',
   },
   cardsContainer: {
     flex: 1,
