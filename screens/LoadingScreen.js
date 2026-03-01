@@ -46,7 +46,7 @@ export default function LoadingScreen() {
           style={styles.logo}
           resizeMode="contain"
         />
-        <Text style={styles.title}>Align Care</Text>
+        
       </Animated.View>
     </View>
   );
