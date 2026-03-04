@@ -12,6 +12,11 @@ export default function RootLayout() {
         <Stack.Screen name="select-role" />
         <Stack.Screen name="login" />
         <Stack.Screen name="signup" />
+        <Stack.Screen name="admin-home" />
+        <Stack.Screen name="clinic-home" />
+        <Stack.Screen name="aligner-home" />
+        <Stack.Screen name="delivery-home" />
+        <Stack.Screen name="recycler-home" />
         <Stack.Screen name="(tabs)" />
       </Stack>
       <StatusBar style="auto" />
