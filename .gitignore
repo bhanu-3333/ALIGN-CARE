@@ -3,6 +3,7 @@
 # ===============================
 node_modules/
 */node_modules/
+**/node_modules/
 
 # ===============================
 # Production Build Files
@@ -11,6 +12,8 @@ build/
 dist/
 */build/
 */dist/
+web-build/
+app-example/
 
 # ===============================
 # Environment Variables (SECRET FILES)
@@ -25,6 +28,7 @@ dist/
 */.env.development.local
 */.env.test.local
 */.env.production.local
+server/.env
 
 # ===============================
 # Logs
@@ -37,6 +41,8 @@ pnpm-debug.log*
 */yarn-debug.log*
 */yarn-error.log*
 */pnpm-debug.log*
+logs/
+*.log
 
 # ===============================
 # Coverage Reports
@@ -51,6 +57,7 @@ coverage/
 Thumbs.db
 */.DS_Store
 */Thumbs.db
+*.pem
 
 # ===============================
 # Editor Folders
@@ -59,14 +66,42 @@ Thumbs.db
 .idea/
 */.vscode/
 */.idea/
+*.swp
+*.swo
+*~
 
 # ===============================
 # Expo
 # ===============================
 .expo/
+.expo-shared/
 aligncare/.expo/
+expo-env.d.ts
 
 # ===============================
-# Misc
+# Native
 # ===============================
-*.log
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+/ios
+/android
+
+# ===============================
+# Metro
+# ===============================
+.metro-health-check*
+
+# ===============================
+# TypeScript
+# ===============================
+*.tsbuildinfo
+
+# ===============================
+# Package Lock Files
+# ===============================
+package-lock.json
