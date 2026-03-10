@@ -67,7 +67,9 @@ export default function LoginScreen() {
                   recycling: '/recycler-home',
                 };
 
-                const route = roleRoutes[data.role] || '/(tabs)';
+                const userRole = (data.role || '').toLowerCase();
+                const route = roleRoutes[userRole] || '/(tabs)';
+                console.log('Navigating to:', route, 'for role:', userRole);
                 router.replace(route);
               },
             },

@@ -1,4 +1,4 @@
-export const API_URL = 'http://172.17.104.219:5000/api'; 
+export const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://10.205.227.249:5000/api'; 
 export const ENDPOINTS = {
   LOGIN: '/auth/login',
   SIGNUP: '/auth/signup',

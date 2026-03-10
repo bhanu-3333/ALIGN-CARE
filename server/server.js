@@ -11,6 +11,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  if (req.method === 'POST') console.log('Body:', req.body);
+  next();
+});
+
 connectDB();
 
 app.use("/api/auth", authRoutes);

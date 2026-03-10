@@ -4,9 +4,11 @@ const bcrypt = require("bcryptjs");
 // Signup
 exports.signup = async (req, res) => {
   const { name, email, password, role } = req.body;
+  const normalizedEmail = (email || '').toLowerCase().trim();
+  const normalizedRole = (role || 'user').toLowerCase().trim();
 
   try {
-    const userExists = await User.findOne({ email });
+    const userExists = await User.findOne({ email: normalizedEmail });
 
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
@@ -16,26 +18,27 @@ exports.signup = async (req, res) => {
 
     const user = new User({
       name,
-      email,
+      email: normalizedEmail,
       password: hashedPassword,
-      role
+      role: normalizedRole
     });
 
     await user.save();
 
-    res.json({ message: "Account created", role: user.role });
+    res.status(201).json({ message: "Account created", role: user.role });
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
 // Login
 exports.login = async (req, res) => {
   const { email, password } = req.body;
+  const normalizedEmail = (email || '').toLowerCase().trim();
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: normalizedEmail });
 
     if (!user) {
       return res.status(400).json({ message: "Invalid email" });
@@ -53,6 +56,6 @@ exports.login = async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
