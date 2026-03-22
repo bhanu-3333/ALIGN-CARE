@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const clinicRoutes = require("./routes/clinicRoutes");
 
 const app = express();
 
@@ -20,7 +21,16 @@ app.use((req, res, next) => {
 
 connectDB();
 
+app.get("/", (req, res) => {
+  res.send("AlignCare API is running");
+});
+
+app.get("/api/health", (req, res) => {
+  res.json({ message: "Server is up and running", time: new Date().toISOString() });
+});
+
 app.use("/api/auth", authRoutes);
+app.use("/api/clinics", clinicRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
