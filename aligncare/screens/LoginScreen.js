@@ -61,7 +61,7 @@ export default function LoginScreen() {
                 // Navigate based on role
                 const roleRoutes = {
                   admin: '/admin-home',
-                  clinic: '/clinic-home',
+                  clinic: '/clinic-registration',
                   aligner: '/aligner-home',
                   delivery: '/delivery-home',
                   recycling: '/recycler-home',
