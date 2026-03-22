@@ -74,10 +74,14 @@ export default function SignupScreen() {
             {
               text: 'Login Now',
               onPress: () => {
-                router.replace({
-                  pathname: '/login',
-                  params: { role },
-                });
+                if (role === 'clinic') {
+                  router.replace('/clinic-registration');
+                } else {
+                  router.replace({
+                    pathname: '/login',
+                    params: { role },
+                  });
+                }
               },
             },
           ]
